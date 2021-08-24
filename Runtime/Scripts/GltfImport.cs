@@ -728,7 +728,8 @@ namespace GLTFast {
 
                 imageReadable = new bool[images.Length];
                 for (int i = 0; i < images.Length; i++) {
-                    imageReadable[i] = imageVariants[i]!=null && imageVariants[i].Count > 1;
+                    imageReadable[i] = true;
+                    // imageReadable[i] = imageVariants[i]!=null && imageVariants[i].Count > 1;
                 }
 
                 Profiler.EndSample();
