@@ -52,7 +52,7 @@ namespace GLTFast {
                     for (int i = 0; i < parentLevels; i++) {
                         baseUri = new Uri(baseUri, "..");
                     }
-                    return new Uri(baseUri, uri);
+                    return new Uri(baseUri, Uri.EscapeDataString(uri));
                 }
 
                 var parentPath = baseUri.OriginalString;
@@ -64,9 +64,9 @@ namespace GLTFast {
                     }
                     baseUri = new Uri(parentPath, UriKind.Relative);
                 }
-                return new Uri(Path.Combine(baseUri.OriginalString, uri), UriKind.Relative);
+                return new Uri(Path.Combine(baseUri.OriginalString, Uri.EscapeDataString(uri)), UriKind.Relative);
             }
-            return new Uri(uri,UriKind.RelativeOrAbsolute);
+            return new Uri(Uri.EscapeDataString(uri),UriKind.RelativeOrAbsolute);
         }
 
         /// <summary>
